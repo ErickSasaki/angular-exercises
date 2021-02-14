@@ -1,0 +1,21 @@
+div {
+	width: 100px;
+	height: 100px;
+	border: 1px solid gray;
+	margin: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.favorite {
+	background-color: darkgoldenrod;
+}
+
+.no-favorite {
+	background-color: burlywood;
+}
+
+input {
+	margin: 20px;
+}

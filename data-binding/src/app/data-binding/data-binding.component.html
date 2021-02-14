@@ -1,0 +1,132 @@
+<section>
+	<!-- <article>
+
+		<h3>Interpolação / Interpolation</h3>
+		<p>String gerada com interpolação, url: {{ url }}</p>
+		<p>1 + 1: {{ 1 + 1 }}</p>
+		<p>1 + 1 + 2: {{ 1 + 1 + getValor() }}</p>
+		<p>True da true: {{ true && true }} </p>
+
+	</article> -->
+
+	<!-- <article> -->
+
+		<!-- <img [src]="url" alt="Nature"> -->
+
+	<!-- </article> -->
+<!--
+	<article>
+
+		<h3>Class e Style Binding</h3>
+		<div>
+
+			<p>Selecione uma classe:</p>
+
+			<select #class (change)="0">
+				<option value="alert-success">Success</option>
+				<option value="alert-danger">Danger</option>
+				<option value="alert-warning">Warning</option>
+				<option value="alert-info">Info</option>
+			</select>
+
+			<div style="margin-top: 25px">
+
+				<div class="alert" role="alert"
+					[class.alert-success]="class.value === 'alert-success'">
+					Success
+				</div>
+				<div class="alert" role="alert"
+					[class.alert-danger]="class.value === 'alert-danger'">
+					Danger
+				</div>
+				<div class="alert" role="alert"
+					[class.alert-warning]="class.value === 'alert-warning'">>
+					Warning
+				</div>
+				<div class="alert" role="alert"
+					[class.alert-info]="class.value === 'alert-info'">>
+					Info
+				</div> -->
+
+				<!-- <div class="alert {{ class.value }}" role="alert">
+					Colorful div!
+				</div> -->
+
+				<!-- <div class="alert alert-danger" role="alert" [style.display]="class.value === 'alert-danger' ? 'block' : 'none'">
+					DEU RUIM MANO!
+				</div> -->
+
+			<!-- </div>
+
+		</div> -->
+
+	<!-- </article> -->
+<!--
+	<article>
+
+		<h3>Event Binding!</h3>
+
+		<div>
+
+			<button (click)="saveValue()" class="btn btn-primary d-block mb-2">Click me!</button>
+
+			<input type="text"
+				(keyup)="handleKeyup(inputText.value)"
+				(keyup.enter)="saveValue()"
+				(blur)="saveValue()"
+				#inputText >
+
+			<p>Texto digitado: {{ text }}</p>
+			<p>Texto salvo: {{ savedText }}</p>
+
+			<p
+				(mouseover)="setMouseOver()"
+				(mouseout)="setMouseOver()"
+				[style.color]="mouseOver ? 'red' : 'blue'"
+				[class.highlight]="mouseOver">
+				{{ mouseOver ? 'Retire o mouse em mim!' : 'Passe o mouse em mim!' }}
+			</p>
+
+		</div>
+
+	</article> -->
+
+	<!-- <article>
+		<h3>Two-way data binding</h3>
+
+		<div>
+
+			<input type="text"
+				[value]="name"
+				(keyup)="name = $event.target.value"
+			>
+			<p>Name: {{ name }}</p>
+
+			<input type="text"
+				[ngModel]="name"
+				(ngModelChange)="name = $event"
+			>
+			<p>Name: {{ name }}</p>
+
+			<input type="text" [(ngModel)]="name">
+			<p>Name: {{ name }}</p>
+
+		</div>
+	</article> -->
+
+	<!-- <article>
+
+		<h3>Input Properties</h3>
+
+		<app-input-property [value]="name"></app-input-property>
+
+	</article> -->
+
+	<article>
+		<h3>Input/Output Properties</h3>
+
+		<app-number-counter [value]="counterValue" (emitValue)="logEvent($event)"></app-number-counter>
+
+	</article>
+
+</section>

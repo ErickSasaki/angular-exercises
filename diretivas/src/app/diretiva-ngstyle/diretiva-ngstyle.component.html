@@ -1,0 +1,10 @@
+<div (click)="favorite = !favorite" [ngStyle]="{
+	'background-color': favorite ? 'goldenrod' : 'burlywood',
+	'cursor': favorite ? 'pointer' : '',
+	'width': width + 'px'
+}">
+
+	<p>{{ favorite ? 'favorite' : 'no-favorite' }}</p>
+
+</div>
+<input type="number" (keyup)="width = widthInput.value" #widthInput [value]="width">

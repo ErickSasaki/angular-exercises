@@ -1,0 +1,12 @@
+<h3>Diretiva ngIf</h3>
+
+<div *ngIf="cursos.length">
+	<p>Lista de cursos:</p>
+	<p>{{cursos[0]}}</p>
+</div>
+
+<div *ngIf="!cursos.length">
+	<p>Nenhum curso encontrado</p>
+</div>
+
+<button (click)="addCourse()">add</button>
