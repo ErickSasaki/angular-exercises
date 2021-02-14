@@ -1,10 +1,11 @@
-<nav>
+<nav *ngIf="showNavBar">
 	<div class="nav-wrapper">
 		<a class="brand-logo right" routerLink>Rotas</a>
 		<ul id="nav-mobile" class="left hide-on-med-and-down">
 			<li><a routerLinkActive="active" routerLink="/login">Login</a></li>
 			<li><a routerLinkActive="active" routerLink="/courses" [queryParams]="{ page: 1 }">Cursos</a></li>
 			<!-- <li><a routerLinkActive="active" [routerLink]="['/course', 1]">Curso com ID</a></li> -->
+			<li><a routerLinkActive="active" routerLink="/students">Alunos</a></li>
 		</ul>
 	</div>
 </nav>

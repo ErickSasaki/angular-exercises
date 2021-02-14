@@ -1,1 +1,16 @@
-<p>login works!</p>
+<div class="collection with-header">
+	<div class="collection-header">
+		<h4>Login</h4>
+	</div>
+	<div class="collection-item">
+		<label for="inputUser">Usuário</label>
+		<input type="text" name="inputUser" #inputUser>
+
+		<label for="inputPassword">Senha</label>
+		<input type="password" name="inputPassword" #inputPassword>
+
+		<button class="btn right" style="margin-bottom: 1em"
+			(click)="auth(inputUser.value, inputPassword.value)">Login
+		</button>
+	</div>
+</div>

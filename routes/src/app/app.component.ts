@@ -1,3 +1,4 @@
+import { AuthService } from './login/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	title = 'routes';
+
+	constructor(private auth: AuthService) { }
+
+	public showNavBar: boolean = false;
+
+	ngOnInit(): void {
+		this.auth.loggedEmitter.subscribe((value) => this.showNavBar = value);
+	}
 }

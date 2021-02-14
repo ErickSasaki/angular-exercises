@@ -1,5 +1,5 @@
-import { ICourse } from './../courses/course.model';
-import { CoursesService } from './../courses/courses.service';
+import { ICourse } from '../course.model';
+import { CoursesService } from '../courses.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';

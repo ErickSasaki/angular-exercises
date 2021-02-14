@@ -1,0 +1,13 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.delete {
+	cursor: pointer;
+	color:red;
+}
+
+.editButton {
+	margin-bottom: 1em;
+}

@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col s6">
+		<div class="collection with-header">
+			<div class="collection-header header">
+				<h4>Alunos</h4>
+				<h4>
+					<a [routerLink]="'new'">+</a>
+				</h4>
+			</div>
+			<a *ngFor="let student of students"
+				class="collection-item"
+				[routerLink]="[student.id]">
+				{{ student.name }}
+			</a>
+			<p style="padding-left: 30px;" *ngIf="students.length === 0">Não há registros.</p>
+		</div>
+	</div>
+	<div class="col s6">
+		<router-outlet></router-outlet>
+	</div>
+</div>
+

@@ -1,0 +1,19 @@
+<div class="collection with-header">
+	<div class="collection-header header">
+		<h4>Detalhes</h4>
+		<h4 class="delete" (click)="deleteStudent()">
+			-
+		</h4>
+	</div>
+
+	<div style="padding: 0px 30px">
+		<div *ngIf="student">
+			<p>ID: {{ student.id }}</p>
+			<p>Nome: {{ student.name }}</p>
+			<p>Email: {{ student.email }}</p>
+			<button class="btn editButton" (click)="editStudent()">Editar</button>
+		</div>
+
+		<p *ngIf="!student"> Registro não encontrado! </p>
+	</div>
+</div>
