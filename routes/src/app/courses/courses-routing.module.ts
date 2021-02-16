@@ -2,10 +2,14 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 import { CoursesComponent } from './courses.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CoursesGuard } from '../guards/courses.guard';
 
 const routes: Routes = [
-	{ path: 'courses', component: CoursesComponent },
-	{ path: 'course/:id', component: CourseDetailsComponent },
+	{
+		path: '', component: CoursesComponent, children: [
+			{ path: ':id', component: CourseDetailsComponent },
+		],
+	},
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ export class AuthService {
 		{ user: 'admin', password: 'admin' },
 		{ user: 'user', password: '123' },
 		{ user: 'test', password: '321' },
+		{ user: '', password: '' },
 	]
 
 	public logged: boolean = false;

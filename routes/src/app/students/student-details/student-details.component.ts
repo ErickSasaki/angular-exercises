@@ -33,9 +33,14 @@ export class StudentDetailsComponent implements OnInit {
 	 * Recupera os dados do aluno.
 	 */
 	private getStudent(): void {
-		this.routeSubscription = this.activatedRoute.params.subscribe((params) => {
-			this.id = Number(params.id || 0);
-			this.student = this.studentsService.getStudent(this.id);
+		// this.routeSubscription = this.activatedRoute.params.subscribe((params) => {
+		// 	this.id = Number(params.id || 0);
+		// 	this.student = this.studentsService.getStudent(this.id);
+		// });
+
+		this.routeSubscription = this.activatedRoute.data.subscribe((data: { studentDetails: IStudent }) => {
+			this.student = data.studentDetails;
+			this.id = this.student.id;
 		});
 	}
 

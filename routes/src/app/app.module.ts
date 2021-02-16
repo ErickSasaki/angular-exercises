@@ -18,7 +18,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 	],
 	imports: [
 		BrowserModule,
-		CoursesModule,
 		// Tem que ser o ultimo import por conta da ordem das rotas.
 		AppRoutingModule,
 		FormsModule

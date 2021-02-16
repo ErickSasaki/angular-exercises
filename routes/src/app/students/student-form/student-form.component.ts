@@ -3,13 +3,14 @@ import { IStudent } from './../student.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentsService } from '../students.service';
+import { IFormCandeactivate } from 'src/app/guards/form-candeactivate';
 
 @Component({
 	selector: 'app-student-form',
 	templateUrl: './student-form.component.html',
 	styleUrls: ['./student-form.component.css']
 })
-export class StudentFormComponent implements OnInit {
+export class StudentFormComponent implements IFormCandeactivate {
 
 	constructor(
 		private studentsService: StudentsService,
@@ -19,6 +20,8 @@ export class StudentFormComponent implements OnInit {
 
 	private id: number;
 	private paramsSubscription: Subscription;
+
+	public formChanged: boolean = false;
 
 	// Iniciado apenas para evitar erros.
 	public student: IStudent = {
@@ -63,12 +66,21 @@ export class StudentFormComponent implements OnInit {
 			this.studentsService.addStudent(this.student);
 		}
 
+		this.formChanged = false;
 		alert('Salvo com sucesso!');
 		this.router.navigate(['students']);
 	}
 
 	public cancel() {
 		this.router.navigate(['students']);
+	}
+
+	public formChange() {
+		this.formChanged = true;
+	}
+
+	public formCanDeactivate(): boolean {
+		return !this.formChanged;
 	}
 
 }
