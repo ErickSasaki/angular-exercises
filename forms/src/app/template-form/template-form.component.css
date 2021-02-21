@@ -1,0 +1,15 @@
+/* .ng-invalid.ng-touched:not(form) {
+	border: 1px solid red;
+} */
+
+.has-error {
+	border: 1px solid red;
+}
+
+.danger {
+	color: red;
+}
+
+label {
+	margin-bottom: 0px;
+}

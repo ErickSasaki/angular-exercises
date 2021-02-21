@@ -1,0 +1,101 @@
+<h3>Template Form</h3>
+<form #form="ngForm" (ngSubmit)="submit(form.value)">
+
+	<div class="row">
+
+		<div class="form-group col-12">
+			<label for="inputName">Nome</label>
+			<input type="text" class="form-control" name="name" placeholder="Nome" [ngModel]="user.name"
+				#nome="ngModel" required [class.has-error]="isInvalid(nome)">
+
+			<div class="danger" *ngIf="isInvalid(nome)">
+				Nome é obrigatório!
+			</div>
+		</div>
+
+		<div class="form-group col-12">
+			<label for="inputEmail">Email</label>
+			<input type="email" class="form-control" name="email" placeholder="Email" [ngModel]="user.email"
+				required #email="ngModel" [ngClass]="{'has-error': isInvalid(email)}">
+
+			<div class="danger" *ngIf="isInvalid(email)">
+				Email é obrigatório!
+			</div>
+		</div>
+
+	</div>
+
+	<div ngModelGroup="address" class="row">
+
+		<div class="form-group col-md-3">
+			<label for="inputCep">CEP</label>
+			<input type="text" class="form-control" name="cep" placeholder="00000-000" [(ngModel)]="user.address.cep"
+				required #cep="ngModel" pattern="\d{5}-\d{3}" maxLength="9" [ngClass]="{'has-error': isInvalid(cep)}"
+				(keypress)="applyCepMask(form)"
+				(blur)="getAddress(cep, form)">
+
+			<div class="danger" *ngIf="!cep.value && cep.touched">
+				Cep é obrigatório!
+			</div>
+			<div class="danger" *ngIf="cep.value && cep.invalid">
+				Cep invalido!
+			</div>
+		</div>
+
+		<div class="form-group col-md-3">
+			<label for="inputNumber">Número</label>
+			<input type="number" class="form-control" name="number" placeholder="Número" [ngModel]="user.address.number"
+				required #number="ngModel" [ngClass]="{'has-error': isInvalid(number)}">
+
+			<div class="danger" *ngIf="isInvalid(number)">
+				Número é obrigatório!
+			</div>
+		</div>
+
+		<div class="form-group col-md-6">
+			<label for="inputComplement">Complemento</label>
+			<input type="text" class="form-control" name="complement" placeholder="Complemento"
+				ngModel #complement="ngModel">
+		</div>
+
+		<div class="form-group col-md-12">
+			<label for="inputStreet">Rua</label>
+			<input type="text" class="form-control" name="street" placeholder="Rua" [ngModel]="user.address.street"
+				readonly ngModel>
+		</div>
+
+		<div class="form-group col-md-5">
+			<label for="inputDistrict">Bairro</label>
+			<input type="text" class="form-control" name="district" placeholder="Bairro"
+				[ngModel]="user.address.district" readonly ngModel>
+		</div>
+
+		<div class="form-group col-md-4">
+			<label for="inputCity">Cidade</label>
+			<input type="text" class="form-control" name="city" placeholder="Cidade" [ngModel]="user.address.city"
+				readonly ngModel>
+		</div>
+
+		<div class="form-group col-md-3">
+			<label for="inputState">Estado</label>
+			<input type="text" class="form-control" name="state" placeholder="Estado" [ngModel]="user.address.state"
+				readonly ngModel>
+		</div>
+
+	</div>
+
+	<div class="row">
+
+		<div class="col-12">
+			<button type="submit" class="btn btn-primary"
+			[disabled]="form.invalid">
+				Submit
+			</button>
+		</div>
+
+		<app-form-debug [form]="form"></app-form-debug>
+		<!-- <pre> {{ user | json}}</pre> -->
+
+	</div>
+
+</form>
