@@ -1,1 +1,89 @@
-<p>data-form works!</p>
+<h3>Data Form</h3>
+<form [formGroup]="form" (ngSubmit)="submit(form.value)">
+
+	<div class="row">
+
+		<div class="form-group col-12">
+			<label for="name">Nome</label>
+			<input type="text" class="form-control" formControlName="name" placeholder="Nome"
+				[ngClass]="{'has-error': isInvalid('name')}">
+
+			<div class="danger" *ngIf="isInvalid('name')">Nome é obrigatório!</div>
+		</div>
+
+		<div class="form-group col-12">
+			<label for="email">Email</label>
+			<input type="email" class="form-control" formControlName="email" placeholder="Email"
+				[ngClass]="{'has-error': isInvalid('email') || verifyValidEmail()}">
+
+			<div class="danger" *ngIf="isInvalid('email') && !form.get('email').value">Email é obrigatório!</div>
+			<div class="danger" *ngIf="verifyValidEmail('email')">Email inválido!</div>
+		</div>
+
+	</div>
+
+	<div class="row" formGroupName="address">
+
+		<div class="form-group col-md-3">
+			<label for="cep">CEP</label>
+			<input type="text" class="form-control" formControlName="cep" placeholder="00000-000"
+				(blur)="getAddress()">
+
+			<div class="danger" *ngIf="verifyRequired('address.cep')">
+				Cep é obrigatório!
+			</div>
+			<div class="danger" *ngIf="verifyPattern('address.cep')">
+				Cep invalido!
+			</div>
+		</div>
+
+		<div class="form-group col-md-3">
+			<label for="number">Número</label>
+			<input type="number" class="form-control" formControlName="number" placeholder="Número">
+
+			<div class="danger" *ngIf="isInvalid('address.number')">
+				Número é obrigatório!
+			</div>
+		</div>
+
+		<div class="form-group col-md-6">
+			<label for="complement">Complemento</label>
+			<input type="text" class="form-control" formControlName="complement" placeholder="Complemento">
+		</div>
+
+		<div class="form-group col-md-12">
+			<label for="street">Rua</label>
+			<input type="text" class="form-control" formControlName="street" placeholder="Rua">
+		</div>
+
+		<div class="form-group col-md-5">
+			<label for="district">Bairro</label>
+			<input type="text" class="form-control" formControlName="district" placeholder="Bairro">
+		</div>
+
+		<div class="form-group col-md-4">
+			<label for="city">Cidade</label>
+			<input type="text" class="form-control" formControlName="city" placeholder="Cidade">
+		</div>
+
+		<div class="form-group col-md-3">
+			<label for="state">Estado</label>
+			<input type="text" class="form-control" formControlName="state" placeholder="Estado">
+		</div>
+
+	</div>
+
+	<div class="row">
+
+		<div class="d-flex col-12" style="justify-content: space-between;">
+			<button (click)="resetForm()" class="btn btn-danger">Cancelar</button>
+			<button type="submit" class="btn btn-primary">
+				Submit
+			</button>
+		</div>
+
+		<app-form-debug [form]="form"></app-form-debug>
+
+	</div>
+
+</form>
